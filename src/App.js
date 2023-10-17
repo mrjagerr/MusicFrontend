@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
+import SongLibrary from "./Components/SongLibrary/SongLibrary";
 
 
 function App() {
@@ -24,9 +25,7 @@ function App() {
 
   return (
     <div >
-     
-     <button onClick={()=>getAllSongs()}> Get All Songs </button>
-  
+      <SongLibrary parentEntries ={songs}/>
     </div>
   );
 }
