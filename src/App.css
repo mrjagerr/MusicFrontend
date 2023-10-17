@@ -1,0 +1,12 @@
+table,th,td {
+   border-color: black;
+   border: 3px solid;
+   border-collapse: collapse;
+  
+}
+table{
+    width: 100%;
+}
+td,th{
+    width: 15%
+}

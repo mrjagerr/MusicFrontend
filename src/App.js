@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import SongLibrary from "./Components/SongLibrary/SongLibrary";
+import './App.css';
+import PostSong from "./Components/PostSong/PostSong";
 
 
 function App() {
@@ -25,7 +27,11 @@ function App() {
 
   return (
     <div >
-      <SongLibrary parentEntries ={songs}/>
+      <PostSong/>
+      
+        <SongLibrary parentEntries ={songs}/>
+      
+     
     </div>
   );
 }
