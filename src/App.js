@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from "react";
 import axios from "axios";
 import SongLibrary from "./Components/SongLibrary/SongLibrary";
-import './App.css';
 import PostSong from "./Components/PostSong/PostSong";
-
+import './App.css';
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
  const [ songs,setSongs] = useState([]);
@@ -28,9 +28,9 @@ function App() {
   return (
     <div >
       <PostSong/>
-      
-        <SongLibrary parentEntries ={songs}/>
-      
+      <SearchBar/>
+      <SongLibrary parentEntries = {songs}/>
+      <button onClick={()=>getAllSongs()}> Get All Songs </button>
      
     </div>
   );
