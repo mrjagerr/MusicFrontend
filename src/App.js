@@ -43,9 +43,20 @@ function App() {
     console.log(fiilteredSongs);
   }
 
+  function addNewSong(entry){
+    let tempSong =[entry,...songs];
+    setSongs(tempSong);
+
+  }
+
+
+ 
+
+  
+
   return (
     <div>
-      <PostSong />
+      <PostSong  addNewSong={addNewSong} />
       <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
       <SongLibrary songs={songs} />
     </div>
