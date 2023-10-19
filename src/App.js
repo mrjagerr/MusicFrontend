@@ -7,6 +7,7 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const [songs, setSongs] = useState([]);
+
   useEffect(() => {
     getAllSongs();
   }, []);
@@ -14,17 +15,40 @@ function App() {
   async function getAllSongs() {
     const response = await axios.get("https://localhost:7221/api/Songs");
     setSongs(response.data);
-    console.log(songs);
+  }
+  console.log(songs);
+
+  async function getSongs(entry) {
+    
+    let userinput = entry;
+    let fiilteredSongs = songs.filter(function (songs) {
+      if (songs.title.includes(userinput)) {
+        return true;
+      }
+      if (songs.artist.includes(userinput)) {
+        return true;
+      }
+      if (songs.album.includes(userinput)) {
+        return true;
+      }
+      if (songs.releaseDate.includes(userinput)) {
+        return true;
+      }
+      if (songs.genre.includes(userinput)) {
+        return true;
+      }
+    });
+
+    setSongs(fiilteredSongs);
+    console.log(fiilteredSongs);
   }
 
   return (
     <div>
       <PostSong />
-      <SearchBar />
-      <SongLibrary parentEntries={songs} />
-      <button onClick={() => getAllSongs()}> Get All Songs </button>
+      <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
+      <SongLibrary songs={songs} />
     </div>
   );
 }
-
 export default App;

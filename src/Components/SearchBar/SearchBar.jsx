@@ -1,52 +1,22 @@
-import React, {useState,useEffect} from "react";
-import axios from "axios";
-import { getByTitle } from "@testing-library/react";
+import React, { useState, useEffect } from "react";
+
+
+const SearchBar = ({onSubmit,onClear}) => {
+ const[search,setSearch] =useState('');
+const handleSubmit =(event) =>{
+  event.preventDefault();
+  onSubmit(search)
 
 
 
+}
+  return (
+    <form onSubmit={handleSubmit} >
+      <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" id="search"></input>
+      <button type="submit"> Search</button>
+      <button onClick={onClear} > Clear Search</button>
+    </form>
+  );
+};
 
-
-
- const SearchBar= (props) => {
-   
-
-const[songs,setSongs] = useState();
-
-
-
-
-async function getSongs(){
-  const response = await axios.get('https://localhost:7221/api/Songs/1');
-  setSongs(response.data);
-  setSongs.filter((title) => {
-    return Object.values(title).join('').includes(songs)
-})
-setSongs(response.data);
-console.log(response)
- 
- }
- 
-
-      
-
-
-
-
-
-
-
-  return ( 
-<div>
-<input type="text"  ></input>
-<button onClick={()=>getSongs()}> Search</button>
-</div>
-   
-   
-   
- );
-  };
-
-
-
-  
 export default SearchBar;

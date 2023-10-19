@@ -1,7 +1,7 @@
-const SongLibrary = (props) => {
+const SongLibrary = ({songs}) => {
   return (
     <table>
-      {props.parentEntries.map((entry) => {
+      {songs.map((entry) => {
         return (
           <tbody>
             <tr>

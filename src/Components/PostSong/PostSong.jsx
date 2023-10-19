@@ -1,4 +1,15 @@
-const PostSong = (props) => {
+const PostSong = ({onSubmit}) => {
+
+
+
+
+
+
+
+
+
+
+  
   return (
     <form>
       <label>Title</label>
@@ -11,7 +22,7 @@ const PostSong = (props) => {
       <input type="date" />
       <label>Genre</label>
       <input type="text" />
-      <button> Add Song </button>
+      <button type> Add Song </button>
     </form>
   );
 };
