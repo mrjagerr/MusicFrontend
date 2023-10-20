@@ -5,6 +5,8 @@ import PostSong from "./Components/PostSong/PostSong";
 import "./App.css";
 import SearchBar from "./Components/SearchBar/SearchBar";
 
+
+
 function App() {
   const [songs, setSongs] = useState([]);
 
@@ -44,20 +46,30 @@ function App() {
   }
 
  async function addNewSong(entry){
+    let  songCheck = entry;
     let tempSong =[entry,...songs];
+    
+   if(songCheck !== null){
     await axios.post("https://localhost:7221/api/Songs",entry);
+
+   } 
+  
     setSongs(tempSong)
   }
-
+  
  
-
+async function deleteSong (id){
+ let songToDelete= await axios.delete(`https://localhost:7221/api/Songs/${id}`)
+  getAllSongs();
+}
   
 
   return (
     <div>
+      
       <PostSong  addNewSong={addNewSong} />
       <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
-      <SongLibrary songs={songs} />
+      <SongLibrary songs={songs} onDelete={deleteSong} />
     </div>
   );
 }

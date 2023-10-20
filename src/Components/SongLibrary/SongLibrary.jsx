@@ -1,9 +1,18 @@
-const SongLibrary = ({songs}) => {
+const SongLibrary = ({songs,onDelete}) => {
+
+
+
+
+
   return (
+
+
+
+
     <table>
       {songs.map((entry) => {
         return (
-          <tbody>
+          <tbody id={entry.id}>
             <tr>
               <th>Title</th>
               <th>Artist</th>
@@ -18,7 +27,7 @@ const SongLibrary = ({songs}) => {
               <td>{entry.releaseDate}</td>
               <td>{entry.genre}</td>
               <td>
-                <button> Delete placeholder</button>
+                <button onClick={() => onDelete(entry.id)}   > Delete placeholder</button>
               </td>
               <td>
                 <button> Edit PlaceHolder</button>

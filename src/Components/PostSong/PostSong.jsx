@@ -9,7 +9,7 @@ const PostSong = (props) => {
 
 
     const[title, setTitle] = useState('');
-    const[artist,setArtist] =useState('');
+    const[artist,setArtist] =useState( '');
     const[album, setAlbum] =useState ('');
     const[releaseDate,setReleaseDate] =useState('');
     const[genre,setGenre] =useState('');
