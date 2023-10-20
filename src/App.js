@@ -43,12 +43,11 @@ function App() {
     console.log(fiilteredSongs);
   }
 
-  function addNewSong(entry){
+ async function addNewSong(entry){
     let tempSong =[entry,...songs];
-    setSongs(tempSong);
-
+    await axios.post("https://localhost:7221/api/Songs",entry);
+    setSongs(tempSong)
   }
-
 
  
 
