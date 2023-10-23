@@ -32,7 +32,7 @@ const PostSong = (props) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} >
       <label>Title</label>
       <input type="text" value={title} onChange={(event)=> setTitle(event.target.value)} id='title' />
       <label>Artist</label>

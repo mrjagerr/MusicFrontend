@@ -86,12 +86,13 @@ function App() {
   return (
     <div>
       <div>
-        <Header/>
+        <Header />
       </div>
-      <div>
-        <PostSong addNewSong={addNewSong} />
-      </div>
-      <div>
+      <div className="container">
+        <div className="addsong"> 
+          <PostSong addNewSong={addNewSong} />
+        </div>
+
         <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
       </div>
       <div>

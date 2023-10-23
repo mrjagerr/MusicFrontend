@@ -11,7 +11,7 @@ const handleSubmit =(event) =>{
 
 }
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit}  className="searchbar">
       <input value={search} onChange={(e) => setSearch(e.target.value)} type="text" id="search"></input>
       <button type="submit"> Search</button>
       <button onClick={onClear} > Clear Search</button>

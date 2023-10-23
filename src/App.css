@@ -1,22 +1,66 @@
+
+
 table,th,td {
    border-color: black;
    border: 3px solid;
    border-collapse: collapse;
+  table-layout: auto;
+
+
 }
-td {
-   border-color: black;
-   border: 3px solid;
-   border-collapse: collapse;
+
+
+h1{
+   display:flex;
+   font-size: 50px;
+ justify-content: space-around;
+
 }
-table,th,td {
-   border-color: black;
-   border: 3px solid;
-   border-collapse: collapse;
+.musictable{
+  background-color: white;
+
+}
+body{
+   background-color:#6A7395;
+   font-size: larger;
+}
+.buttonlocation{
+   display: flex;
+   position: relative;
+   flex-direction: column;
+width: 90%;
+
+ 
+
   
 }
-table{
-    width: 100%;
+.sectionsize{
+ 
+ text-align: center;
+ width: 19%;
 }
-td,th{
-    width: 15%
-}
+.sectionsizeheaders{
+ 
+   text-align: center;
+   width: 20%;
+   font-size: x-large;
+  }
+  th{
+   font-size: xx-large;
+   background-color: #958C6A;
+  }
+  .searchbar{
+  
+   position: relative;
+   display: flex;
+   left: 45%;
+  }
+  .container{
+   display: flex;
+   flex-direction: column;
+  }
+  .addsong{
+   position: relative;
+   left: 20%;
+ font-size: x-large;
+  }
