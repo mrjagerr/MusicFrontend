@@ -27,7 +27,7 @@ const SongLibrary = ({songs,onDelete}) => {
               <td>{entry.releaseDate}</td>
               <td>{entry.genre}</td>
               <td>
-                <button onClick={() => onDelete(entry.id)}   > Delete placeholder</button>
+                <button onClick={() => onDelete(entry.id)}   > Delete</button>
               </td>
               <td>
                 <button> Edit PlaceHolder</button>

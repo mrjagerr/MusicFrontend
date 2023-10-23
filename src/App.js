@@ -4,8 +4,7 @@ import SongLibrary from "./Components/SongLibrary/SongLibrary";
 import PostSong from "./Components/PostSong/PostSong";
 import "./App.css";
 import SearchBar from "./Components/SearchBar/SearchBar";
-
-
+import Header from "./Components/Header/Header";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -21,7 +20,6 @@ function App() {
   console.log(songs);
 
   async function getSongs(entry) {
-    
     let userinput = entry;
     let fiilteredSongs = songs.filter(function (songs) {
       if (songs.title.includes(userinput)) {
@@ -45,31 +43,60 @@ function App() {
     console.log(fiilteredSongs);
   }
 
- async function addNewSong(entry){
-    let  songCheck = entry;
-    let tempSong =[entry,...songs];
-    
-   if(songCheck !== null){
-    await axios.post("https://localhost:7221/api/Songs",entry);
+  async function addNewSong(entry) {
+    let songCheck = entry;
+    let tempSong = [entry, ...songs];
 
-   } 
-  
-    setSongs(tempSong)
+    if (songCheck !== null) {
+      alert("Please fill out all info.");
+      getAllSongs();
+    }
+
+    if (songCheck.title === null) {
+      alert("Please fill out all info to add a song.");
+      getAllSongs();
+    }
+    if (songCheck.artist === null) {
+      alert("Please fill out all info to add a song.");
+      getAllSongs();
+    }
+    if (songCheck.album === null) {
+      alert("Please fill out all info  to add a song.");
+      getAllSongs();
+    }
+    if (songCheck.releaseDate === null) {
+      alert("Please fill out all info  to add a song.");
+      getAllSongs();
+    }
+    if (songCheck.genre === null) {
+      alert("Please fill out all info  to add a song.");
+      getAllSongs();
+    }
+
+    setSongs(tempSong);
   }
-  
- 
-async function deleteSong (id){
- let songToDelete= await axios.delete(`https://localhost:7221/api/Songs/${id}`)
-  getAllSongs();
-}
-  
+
+  async function deleteSong(id) {
+    let songToDelete = await axios.delete(
+      `https://localhost:7221/api/Songs/${id}`
+    );
+    getAllSongs();
+  }
 
   return (
     <div>
-      
-      <PostSong  addNewSong={addNewSong} />
-      <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
-      <SongLibrary songs={songs} onDelete={deleteSong} />
+      <div>
+        <Header/>
+      </div>
+      <div>
+        <PostSong addNewSong={addNewSong} />
+      </div>
+      <div>
+        <SearchBar onSubmit={getSongs} onClear={getAllSongs} />
+      </div>
+      <div>
+        <SongLibrary songs={songs} onDelete={deleteSong} />
+      </div>
     </div>
   );
 }
